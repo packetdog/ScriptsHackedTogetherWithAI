@@ -73,7 +73,7 @@ EMAIL_FILE="$WORK_DIR/email_with_attachments.txt"
 ALERT_EMAIL_FILE="$WORK_DIR/alert_email.txt"
 TEMP_SCRIPT="$WORK_DIR/monitor_logs_update.sh"
 SCRIPT_URL="https://raw.githubusercontent.com/packetdog/ScriptsHackedTogetherWithAI/main/CyberPanel%20Server%20Management%20Scripts/monitor_logs.sh"
-SCRIPT_COMMIT_URL="https://github.com/packetdog/ScriptsHackedTogetherWithAI/blob/main/Cyberpanel%20Server%20Management%20Scripts/monitor_logs.sh?tab=log"
+SCRIPT_COMMIT_URL="https://github.com/packetdog/ScriptsHackedTogetherWithAI/commits/main/CyberPanel%20Server%20Management%20Scripts/monitor_logs.sh"
 UPDATE_ALERT="" # Default - may be overwritten by persisted alert
 
 # Date/Time In-Flight Variables
