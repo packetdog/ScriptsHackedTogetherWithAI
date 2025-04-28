@@ -126,7 +126,7 @@ UPTIME_INFO=$(uptime)
 HIGH_USAGE_PARTITIONS=$(df --output=target,pcent | grep -v Use | awk '{gsub("%",""); if ($2+0 > 90) print $1 " - " $2 "%"}')
 if [ -n "$HIGH_USAGE_PARTITIONS" ]; then
   {
-    echo "Subject: 🚨 Partition Usage Alert - $HOSTNAME"
+    echo "Subject: 🚨 3Hr. Check - Partition Usage Alert - $HOSTNAME"
     echo "From: $FROM_NAME <$EMAIL_FROM>"
     echo "To: $EMAIL_TO"
     echo ""
@@ -171,7 +171,7 @@ if [[ "$MODE" == "check" ]]; then
   # Alert if size grown >25%
   if [[ "$PERCENT_CHANGE" != "N/A" && $(echo "$PERCENT_CHANGE > 25" | bc) -eq 1 ]]; then
     {
-      echo "Subject: 🚨 LSWS Log Size Alert - $HOSTNAME"
+      echo "Subject: 🚨 3Hr. Check - LSWS Log Size Alert - $HOSTNAME"
       echo "From: $FROM_NAME <$EMAIL_FROM>"
       echo "To: $EMAIL_TO"
       echo ""
@@ -294,10 +294,10 @@ if [[ "$MODE" == "daily" ]]; then
     echo "MIME-Version: 1.0"
     echo "Content-Type: multipart/mixed; boundary=\"frontier\""
     echo ""
-    [ -n "$UPDATE_ALERT" ] && { echo "$UPDATE_ALERT"; echo ""; }
     echo "--frontier"
     echo "Content-Type: text/plain"
     echo ""
+    [ -n "$UPDATE_ALERT" ] && { echo "$UPDATE_ALERT"; echo ""; }
     echo "Log Directory Size Report:"
     echo "Previous Size (as of $YESTERDAY_HUMAN): $(numfmt --to=iec -- $PREVIOUS_SIZE_RAW)"
     echo "Current Size (as of $TODAY_HUMAN): $(numfmt --to=iec -- $CURRENT_SIZE_RAW)"
